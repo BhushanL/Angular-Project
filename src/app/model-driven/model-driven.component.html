@@ -1,0 +1,299 @@
+<!--<h1>Model Driven Form</h1>
+<hr style='background:blue'>
+<div class='container'>
+  <div class="row">
+    <div class="col">-->
+<!-- <form #userForm='ngForm' (ngSubmit)='submitData(userForm.value)'> -->
+
+<body>
+<h1>Model Registration Form</h1>
+
+
+
+
+<div class="col-sm-3"></div>
+<div class='container col-sm-6' style="padding-top:20px;">
+
+
+
+  <form [formGroup]="userForm" (ngSubmit)='submitData()' style="overflow: hidden;padding: 20px; background-color: #333; color: white;">
+
+
+
+    <div class='form-group'>
+      <label>Name:</label>
+      <input formControlName='name' class='form-control'>
+
+
+
+      <div *ngIf="userForm.get('name')?.errors?.required" class='text text-danger'>Name is required </div>
+      <div *ngIf="userForm.get('name')?.errors?.pattern" class='text text-danger'>Name should be valid and Name should be 5 to 15 characters </div>
+
+
+
+
+      <label>Email:</label>
+      <input formControlName='email' class='form-control'>
+
+
+      <div *ngIf="userForm.get('email')?.errors?.required" class='text text-danger'>Email is required </div>
+      <div *ngIf="userForm.get('email')?.errors?.pattern" class='text text-danger'>Email should be valid and email should be 5 to 15 characters </div>
+
+      <!--<label>Gender</label>
+    <div class="form-control">
+      <label class="radio-inline">
+        <input type="radio" formControlName="gender" class='form-control' value="male" ngModel>
+        Male
+      </label>
+      <label class="radio-inline">
+        <input type="radio" formControlName="gender" class='form-control' value="female" ngModel>
+        Female
+      </label>
+    </div>-->
+      <label></label>
+
+    </div>
+
+
+
+    <div class='form-group' formGroupName="address">
+      <label>State:</label>
+      <input formControlName='state' class='form-control'>
+      <div *ngIf="userForm.get('address.state')?.errors?.required" class='text text-danger'>State is Required </div>
+      <div *ngIf="userForm.get('address.state')?.errors?.pattern" class='text text-danger'>Please Enter a valid State</div>
+    </div>
+
+    <div class='form-group' formGroupName="address">
+      <label>City:</label>
+      <input formControlName='city' class='form-control'>
+      <div *ngIf="userForm.get('address.city')?.errors?.required" class='text text-danger'>City is required </div>
+      <div *ngIf="userForm.get('address.city')?.errors?.pattern" class='text text-danger'>Please Enter a valid city</div>
+    </div>
+
+
+
+    <div class='form-group' formGroupName="address">
+      <label>Postal Code:</label>
+      <input formControlName='postalcode' class='form-control'>
+      <div *ngIf="userForm.get('address.postalcode')?.errors?.require" class='text text-danger'>Postal Code is required </div>
+      <div *ngIf="userForm.get('address.postalcode')?.errors?.pattern" class='text text-danger'>Please Enter a valid postal code</div>
+    </div>
+
+    <div class='form-group' formGroupName="address">
+      <label>Gender</label>
+      <div class="form-control">
+        <label class="radio-inline">
+          <input type="radio" formControlName="gender" value="male" ngModel>
+          Male
+        </label>
+        <label class="radio-inline">
+          <input type="radio" formControlName="gender" value="female" ngModel>
+          Female
+        </label>
+      </div>
+
+    </div>
+
+    <div class='form-group' formGroupName="address">
+      <label>Comment:</label>
+      <textarea formControlName="comment" class='form-control' cols="30" rows="10"></textarea>
+      <div *ngIf="userForm.get('address.comment')?.errors?.required" class='text text-danger'>Comment is required </div>
+      <div *ngIf="userForm.get('address.comment')?.errors?.pattern" class='text text-danger'>Please Enter a valid comment</div>
+
+    </div>
+    <!--<div class='form-group' formGroupName="address">
+    <label>Gender</label>
+    <div class="form-control">
+      <label class="radio-inline">
+        <input type="radio" formControlName="gender" value="male" ngModel>
+        Male
+      </label>
+      <label class="radio-inline">
+        <input type="radio" formControlName="gender" value="female" ngModel>
+        Female
+      </label>
+   </div>
+
+  </div>-->
+
+    <button [disabled]='!userForm.valid' type='submit' class='btn btn-success'>Submit</button>
+
+
+
+  </form>
+ </div>
+  <!--<body style="background-color:white">
+    <div class="col-sm-1"></div>
+    <h1>Model Registration Form</h1>
+    <div class='container col-sm-6' style="padding-top:20px;">
+
+
+      <form [formGroup]="userForm" (ngSubmit)='submitData()' style="overflow: hidden;padding: 20px; background-color: darkseagreen; color: black;">
+
+
+
+        <div class='form-group'>
+          <label>First Name:</label>
+          <input formControlName='name' class='form-control'>
+
+
+
+          <div *ngIf="userForm.get('name')?.errors?.required" class='text text-danger'>Name is required </div>
+          <div *ngIf="userForm.get('name')?.errors?.pattern" class='text text-danger'>Name should be valid and Name should be 5 to 15 characters </div>
+
+
+
+
+
+
+          <label>Email:</label>
+          <input formControlName='email' class='form-control'>
+
+
+
+          <div *ngIf="userForm.get('email')?.errors?.required" class='text text-danger'>Email is required </div>
+          <div *ngIf="userForm.get('email')?.errors?.pattern" class='text text-danger'>Email should be valid and Name should be 5 to 15 characters </div>
+
+          <div class='form-group' formGroupName="address">
+            <label>State:</label>
+            <input formControlName='state' class='form-control'>
+            <div *ngIf="userForm.get('address.state')?.errors?.required" class='text text-danger'>State is Required </div>
+            <div *ngIf="userForm.get('address.state')?.errors?.pattern" class='text text-danger'>Please Enter a valid State</div>
+          </div>
+
+          <div class='form-group' formGroupName="address">
+            <label>City:</label>
+            <input formControlName='city' class='form-control'>
+            <div *ngIf="userForm.get('address.city')?.errors?.required" class='text text-danger'>City is required </div>
+            <div *ngIf="userForm.get('address.city')?.errors?.pattern" class='text text-danger'>Please Enter a valid city</div>
+          </div>
+
+
+
+          <div class='form-group' formGroupName="address">
+            <label>Postal Code:</label>
+            <input formControlName='postalcode' class='form-control'>
+            <div *ngIf="userForm.get('address.postalcode')?.errors?.require" class='text text-danger'>Postal Code is required </div>
+            <div *ngIf="userForm.get('address.postalcode')?.errors?.pattern" class='text text-danger'>Please Enter a valid postal code</div>
+          </div>
+
+
+        </div>
+        <button [disabled]='!userForm.valid' type='submit' class='btn btn-success'>Submit</button>
+
+
+
+      </form>
+
+    </div>-->
+
+
+
+  <div class="table-wrapper">
+
+    <table class="fl-table">
+      <thead>
+
+
+
+        <tr *ngIf="myData.length>0;">
+          <th>Name</th>
+          <th>Email</th>
+          <th>state</th>
+          <th>City</th>
+          <th>Zip Code</th>
+          <th>Gender</th>
+          <th>comment</th>
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor='let data of myData'>
+          <td>{{data.name}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.address.state}}</td>
+          <td>{{data.address.city}}</td>
+          <td>{{data.address.postalcode}}</td>
+          <td>{{data.address.comment}}</td>
+          <td>{{data.address.gender}}</td>
+
+
+        </tr>
+      <tbody>
+
+    </table>
+  </div>
+  </body>
+  <!--</body>-->
+  <!--<table class="center">
+    <tr *ngIf="myData.length>0;">
+      <th>Name</th>
+      <th>Email</th>
+      <th>state</th>
+      <th>City</th>
+      <th>Zip Code</th>
+
+
+
+    </tr>
+    <tr *ngFor='let product of myData'>
+      <td>{{product.name}}</td>
+      <td>{{product.email}}</td>
+      <td>{{product.address.state}}</td>
+      <td>{{product.address.city}}</td>
+      <td>{{product.address.postalcode}}</td>
+
+
+
+    </tr>
+  </table>-->
+  <!--</div>
+  </div>
+  </div>-->
+  <!--</body>-->
+  <!--<label>Email:</label>
+    <input formControlName='email' class='form-control'>
+
+
+
+    <div *ngIf="userForm.get('email')?.errors?.required && userForm.get('email').touched" class='text text-danger'>Email is required </div>
+    <div *ngIf="userForm.get('email').?errors?.pattern" class='text text-danger'>Please Enter a valid Email</div>
+  </div>
+  <div class='form-group' formGroupName="address">
+
+      </div>
+
+    <label>State:</label>
+    <input formControlName='state' class='form-control'>
+    <div *ngIf="userForm.get('address.state').errors?.required && userForm.get('address.state').touched" class='text text-danger'>State is Required </div>
+    <div *ngIf="userForm.get('address.state').errors?.pattern" class='text text-danger'>Please Enter a valid State</div>
+  </div>
+
+
+
+  <div class='form-group' formGroupName="address">
+    <label>City:</label>
+    <input formControlName='city' class='form-control'>
+    <div *ngIf="userForm.get('address.city').errors?.required && userForm.get('address.city').touched" class='text text-danger'>Email is required </div>
+    <div *ngIf="userForm.get('address.city').errors?.pattern" class='text text-danger'>Please Enter a valid city</div>
+  </div>
+
+
+
+  <div class='form-group' formGroupName="address">
+    <label>Postal Code:</label>
+    <input formControlName='postalcode' class='form-control'>
+    <div *ngIf="userForm.get('address.postalcode').errors?.required && userForm.get('address.state').touched" class='text text-danger'>Email is required </div>
+    <div *ngIf="userForm.get('address.postalcode').errors?.pattern" class='text text-danger'>Please Enter a valid postal code</div>
+  </div>-->
+  <!--<button [disabled]='!userForm.valid' type='submit' class='btn btn-success'>Submit</button>
+
+
+
+  </form>
+
+  </div>-->
+  <!--</div>-->

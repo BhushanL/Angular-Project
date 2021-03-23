@@ -1,0 +1,48 @@
+[
+  {
+    "productId": 101,
+    "productName": "Bhushan",
+    "productDescription": "Very happy with this platform",
+    "productPrice": 59,
+    "productExpDate": "26/01/2021",
+    "prodImg": "../assets/bhushanr.png"
+
+  },
+  {
+    "productId": 102,
+    "productName": "Amey",
+    "productDescription": "Good value for money here",
+    "productPrice": 70,
+    "productExpDate": "26/02/2021",
+    "prodImg": "../assets/ameyr.jpg"
+
+  },
+  {
+    "productId": 103,
+    "productName": "Pritesh",
+    "productDescription": "thanks for offering this platform, worked fine",
+    "productPrice": 200,
+    "productExpDate": "26/03/2020",
+    "prodImg": "../assets/priteshr.jpg"
+
+  },
+  {
+    "productId": 104,
+    "productName": "Shradhha",
+    "productDescription": "money well spent on design courses",
+    "productPrice": 500,
+    "productExpDate": "26/01/2019",
+    "prodImg": "../assets/shradhhar.webp"
+
+
+  },
+  {
+    "productId": 105,
+    "productName": "Deepika",
+    "productDescription": "Good comprehensive course",
+    "productPrice": 350,
+    "productExpDate": "26/01/2020",
+    "prodImg": "../assets/deepikar.png"
+
+  }
+]

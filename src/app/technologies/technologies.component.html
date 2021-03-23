@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<!--<body style="background-color:lightgray;">-->
+<body>
+
+  <div class="container">
+    <h2>Courses Gallery</h2>
+    <p id="p1">Our courses have been proven to increase confidence and develop the skills needed to enter in industry and succeed with learning.
+    You can choose an OpenLearn course from a wide range of subjects.</p>
+    
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <a [routerLink]='["app-java"]' routerLinkActive='active'>
+            <img src="../assets/java tech3.jpg" alt="Lights" width="500" height="500">
+            <div class="caption">
+              <strong>Java Technologies</strong>
+              
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <a [routerLink]='["customer"]' routerLinkActive='active'>
+          <!--<a href="/w3images/nature.jpg" target="_blank">-->
+            <img src="../assets/web tech.jpg" alt="Nature" width="500" height="900">
+            <div class="caption">
+              <strong>Web Technologies</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <a href="/w3images/fjords.jpg" target="_blank">
+            <img src="../assets/programming.jpg" alt="Fjords" width="500" height="500">
+            <div class="caption">
+              <strong>.Net Technologies</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+<router-outlet></router-outlet>

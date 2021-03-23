@@ -1,0 +1,299 @@
+<body>
+
+<h1>Template Registration Form</h1>
+
+
+
+
+<div class="col-sm-3"></div>
+<div class='container col-sm-6' style="padding-top:20px;">
+  <form #userForm='ngForm' (ngSubmit)='submitData(userForm.value)' style="overflow: hidden;padding: 20px; background-color: #333; color: white;">
+
+
+
+    <div class='form-group gap'>
+      <label>Name:</label>
+      <input type='text' class='form-control' name='name' #nameRef='ngModel'
+             ngModel required minlength='5' maxlength='12' pattern='[A-Z][a-z]+'>
+      <div *ngIf='nameRef.errors && (nameRef.dirty || nameRef.touched)' class='alert alert-danger'>
+        <div [hidden]='!nameRef.errors.required'>Please enter Name</div>
+        <div [hidden]='!nameRef.errors.minlength'>Please enter atleast 5 characters</div>
+        <div [hidden]='!nameRef.errors.pattern'>Please enter valid name</div>
+      </div>
+    </div>
+
+
+
+    <div class='form-group gap'>
+      <label>Email:</label>
+      <input type='text' class='form-control' name='email' #emailRef='ngModel'
+             ngModel required minlength='10' maxlength='40' pattern='[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+'>
+
+
+
+      <div *ngIf='emailRef.errors && (emailRef.dirty || emailRef.touched)' class='alert alert-danger'>
+        <div [hidden]='!emailRef.errors.required'>Please enter email</div>
+        <div [hidden]='!emailRef.errors.minlength'>Please enter atleast 10 characters</div>
+        <div [hidden]='!emailRef.errors.pattern'>Please enter valid email</div>
+      </div>
+    </div>
+
+
+      <!--<div *ngIf="addCtrl.invalid">-->
+    <div ngModelGroup="address" #addCtrl="ngModelGroup">
+      <div class="gap">
+        <label>State:</label>
+        <input type="text" name="state" minlength="5" class='form-control'
+               #stateRef='ngModel' ngModel pattern='[A-Za-z]+' required>
+        <div *ngIf='stateRef.errors && (stateRef.dirty || stateRef.touched)' class='alert alert-danger'>
+          <div [hidden]='!stateRef.errors.required'>Please enter state</div>
+          <div [hidden]='!stateRef.errors.minlength'>Please enter atleast 5 characters</div>
+          <div [hidden]='!stateRef.errors.pattern'>Please enter valid state</div>
+        </div>
+      </div>
+
+
+
+      <div class="gap">
+        <label>City:</label>
+        <input type="text" name="city" minlength="5" class='form-control'
+               #cityRef='ngModel' ngModel pattern='[A-Za-z]+' required>
+        <div *ngIf='cityRef.errors && (cityRef.dirty || cityRef.touched)' class='alert alert-danger'>
+          <div [hidden]='!cityRef.errors.required'>Please enter city</div>
+          <div [hidden]='!cityRef.errors.minlength'>Please enter atleast 5 characters</div>
+          <div [hidden]='!cityRef.errors.pattern'>Please enter valid city</div>
+        </div>
+      </div>
+
+      <div class="gap">
+        <label>Zip Code:</label>
+        <input type="number" name="zip" minlength="6" class='form-control'
+               #zipRef='ngModel' ngModel pattern='[0-9]{6}' required>
+        <div *ngIf='zipRef.errors && (zipRef.dirty || zipRef.touched)' class='alert alert-danger'>
+          <div [hidden]='!zipRef.errors.required'>Please enter zip code</div>
+          <div [hidden]='!zipRef.errors.minlength'>Please enter atleast 6 digits</div>
+          <div [hidden]='!zipRef.errors.pattern'>Please enter valid Zip code</div>
+        </div>
+      </div>
+
+
+
+      <!--<div class="form-group gap">-->
+        <div class=" gap">
+        <label>Gender</label>
+        <div class="form-control">
+          <label class="radio-inline">
+            <input type="radio" name="gender" value="male" ngModel>
+            Male
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="gender" value="female" ngModel>
+            Female
+          </label>
+        </div>
+      </div>
+
+      <!--<div class="form-group gap">
+    <label>Hobbies</label>
+    <select class="form-control" name="hobbies" [(ngModel)]="Hobbies">
+      <option value="">Select an option</option>
+      <option *ngFor="let hoby of Hobbies" [value]="hoby">
+        {{hoby}}
+      </option>
+    </select>
+  </div>-->
+
+
+
+      <div class="gap">
+    <label>Comment</label>
+    <textarea name="comment" minlength="10" cols="30" rows="10" class='form-control'
+              #commentRef='ngModel' ngModel pattern='[A-Za-z]+' required></textarea>
+    <div *ngIf='commentRef.errors && (commentRef.dirty || commentRef.touched)' class='alert alert-danger'>
+      <div [hidden]='!commentRef.errors.required'>Please enter  comment </div>
+      <div [hidden]='!commentRef.errors.minlength'>min length is 10</div>
+      <div [hidden]='!commentRef.errors.pattern'>Please enter valid comment</div>
+    </div>
+  </div>
+
+
+      <!--<div class="gap">
+    <label>Hobbies</label>
+    <select class="form-control" name="hobbies" [(ngModel)]="Hobbies">
+      <option value="">Select an option</option>
+      <option *ngFor="let hoby of Hobbies" [value]="hoby">
+        {{hoby}}
+      </option>
+    </select>
+  </div>-->
+
+
+    </div>
+      <!--</div>-->
+      <br />
+      <button [disabled]='!userForm.form.valid' type='submit' class='btn btn-success'>Submit</button>
+
+
+
+  </form>
+  
+</div>
+
+
+<div class="table-wrapper">
+
+  <table class="fl-table">
+    <thead>
+
+
+      
+      <tr *ngIf="myData.length>0;">
+        <th>Name</th>
+        <th>Email</th>
+
+        <th>state</th>
+        <th>City</th>
+        <th>Zip Code</th>
+        <!--<th>Hobby</th>-->
+       
+        <th>Gender</th>
+        <th>Comment</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let data of myData'>
+        <td>{{data.name}}</td>
+        <td>{{data.email}}</td>
+
+        <td>{{data.address.state}}</td>
+        <td>{{data.address.city}}</td>
+        <td>{{data.address.zip}}</td>
+
+        <td>{{data.address.gender}}</td>
+        <td>{{data.address.comment}}</td>
+        <!--<td> {{data.hobbies}}</td>-->
+
+      </tr>
+    <tbody>
+
+  </table>
+  </div>
+
+  </body>
+
+
+      <!--div class="container">
+        <div [hidden]="submitted">
+          <h1>Hero Form</h1>
+          <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name"
+                     required
+                     [(ngModel)]="model.name" name="name"
+                     #name="ngModel">
+              <div [hidden]="name.valid || name.pristine"
+                   class="alert alert-danger">
+                Name is required
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="alterEgo">Alter Ego</label>
+              <input type="text" class="form-control" id="alterEgo"
+                     [(ngModel)]="model.alterEgo" name="alterEgo">
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="power">Hero Power</label>
+              <select class="form-control" id="power"
+                      required
+                      [(ngModel)]="model.power" name="power"
+                      #power="ngModel">
+                <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+              </select>
+              <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+                Power is required
+              </div>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+      </form>
+        </div>
+
+
+
+
+
+
+
+        <div [hidden]="!submitted">
+          <h2>You submitted the following:</h2>
+          <div class="row">
+            <div class="col-xs-3">Name</div>
+            <div class="col-xs-9">{{ model.name }}</div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">Alter Ego</div>
+            <div class="col-xs-9">{{ model.alterEgo }}</div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">Power</div>
+            <div class="col-xs-9">{{ model.power }}</div>
+          </div>
+          <br>
+          <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+        </div>
+      </div>-->
+      <!--<div class='container'>
+        <form #userForm='ngForm' (ngSubmit)='submitData(userForm.value)'>
+          <div class='form-group'>
+            <label>First Name:</label>
+            <input type='text' class='form-control' name='name' #nameRef='ngModel'
+                   ngModel required minlength='5' maxlength='12' pattern='[a-z]+'>
+            <div *ngIf='nameRef.errors && (nameRef.dirty || nameRef.touched)' class='alert alert-danger'>
+              <div [hidden]='!nameRef.errors.required'>Please enter Name in small letters</div>
+              <div [hidden]='!nameRef.errors.minlength'>Please enter atleast 5 characters</div>
+              <div [hidden]='!nameRef.errors.pattern'>Please enter valid name</div>
+            </div>
+
+
+            <label> Last Name:</label>
+            <input type='text' class='form-control' name='lname' #nameRef='ngModel'
+                   ngModel required minlength='6' maxlength='12' pattern='[a-z]+'>
+            <div *ngIf='nameRef.errors && (nameRef.dirty || nameRef.touched)' class='alert alert-danger'>
+              <div [hidden]='!nameRef.errors.required'>Please enter Last Name in small letters</div>
+              <div [hidden]='!nameRef.errors.minlength'>Please enter atleast 5 characters</div>
+              <div [hidden]='!nameRef.errors.pattern'>Please enter valid Last  name</div>
+            </div>
+
+            <label> Password :</label>
+            <input type='text' class='form-control' name='pass' #nameRef='ngModel'
+                   ngModel required minlength='6' maxlength='12' pattern='[a-z]+'>
+            <div *ngIf='nameRef.errors && (nameRef.dirty || nameRef.touched)' class='alert alert-danger'>
+              <div [hidden]='!nameRef.errors.required'>Please enter  Password</div>
+              <div [hidden]='!nameRef.errors.minlength'>Please enter atleast 6 characters</div>
+              <div [hidden]='!nameRef.errors.pattern'>Please enter valid Password </div>
+            </div>
+            <div class="form-group">
+              <label>Hobbies</label>
+              <select class="form-control" name="hobbies" [(ngModel)]="Hobbies">
+                <option value="">Select an option</option>
+                <option *ngFor="let hoby of Hobbies" [value]="hoby">
+                  {{hoby}}
+                </option>
+              </select>
+            </div>
+
+          </div>
+          <button [disabled]='!userForm.form.valid' type='submit' class='btn btn-success'>Submit</button>
+        </form>-->

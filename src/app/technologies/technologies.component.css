@@ -1,0 +1,17 @@
+h2 {
+  font-size: 80px;
+  font-family: Arial;
+  letter-spacing: 1px;
+  text-align: center;
+  color: white;
+  padding: 30px 0
+}
+
+#p1{font-size: 20px;
+  font-family:Calibri;
+  color:white;
+
+}
+body {
+  background-image: linear-gradient(to right, #D500F9, #FFD54F);
+}

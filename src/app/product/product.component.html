@@ -1,0 +1,52 @@
+<html>
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<!--<body style="background-color:lightgray;">-->
+<body>
+  
+<h2>Reviews</h2>
+
+<div class="container">
+  <div class="table-wrapper">
+    <pre>
+    <input type="text" class="form-control" placeholder="Search Review" name="search" [(ngModel)]="namesearch" /><label>Sort Reviews&nbsp;</label><select [(ngModel)]='SortbyParam' style="padding:5px;border-radius:10px;"><option value="productPrice">Price</option><option value="productName">Name</option><option value="productExpDate">Expiry Date</option></select>
+    <table class="fl-table">
+      <thead>
+        <tr>
+          <th>Review ID</th>
+          <th>User Name</th>
+          <!--<th>Product Price</th>-->
+          <th>Date of Review</th>
+          <th>Review Description</th>
+          <th>User Profile</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let product of products | bhushSearch:namesearch  | sort:[SortbyParam,SortDirection]">
+        <tr appMycolor>
+          <td>{{product.productId}}</td>
+          <td>{{product.productName | titlecase}}</td>
+          <!--<td>{{product.productPrice|currency:'USD':true}}</td>-->
+          <td>{{product.productExpDate}}</td>
+          <td>{{product.productDescription}}</td>
+          <td>
+            <img [src]='product.prodImg' alt="" border=3 height=100 width=100>
+          </td>
+        </tr>
+      <tbody>
+    </table>
+</pre>
+  </div>
+  
+  <!--<ng-template #hide>
+    <h1>No products to display</h1>
+  </ng-template>-->
+
+  </div>
+</body>
+</html>

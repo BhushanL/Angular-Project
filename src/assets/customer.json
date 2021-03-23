@@ -1,0 +1,48 @@
+[
+  {
+    "productId": 101,
+    "productName": "Visual and Graphic Design",
+    "productDescription": "Duration:6 months",
+    "productPrice": 560,
+    "productExpDate": "26/01/2021",
+    "prodImg": "../assets/bhush.jpg"
+
+  },
+  {
+    "productId": 102,
+    "productName": "Graphic Design Certification",
+    "productDescription": "Duration:5 months",
+    "productPrice": 700,
+    "productExpDate": "26/01/2020",
+    "prodImg": "../assets/a.jpg"
+
+  },
+  {
+    "productId": 103,
+    "productName": "Interaction Design",
+    "productDescription": "Duration:8 months",
+    "productPrice": 200,
+    "productExpDate": "26/01/2021",
+    "prodImg": "../assets/pranav.jpg"
+
+  },
+  {
+    "productId": 104,
+    "productName": "UI/UX Design",
+    "productDescription": "Duration:3 months",
+    "productPrice": 500,
+    "productExpDate": "26/01/2019",
+    "prodImg": "../assets/amey.jpg"
+
+
+  },
+  {
+    "productId": 105,
+    "productName": "HTML and CSS for Absolute Beginners",
+    "productDescription": "Duration:1 month",
+    "productPrice": 350,
+    "productExpDate": "26/01/2021",
+    "prodImg": "../assets/shradhha.jpg"
+
+  }
+]
